@@ -98,6 +98,12 @@
     <string name="BlockedUsersActivity__do_you_want_to_unblock_s">Do you want to unblock \"%1$s\"?</string>
     <string name="BlockedUsersActivity__unblock">Unblock</string>
 
+    <!-- ReportedUsersActivity -->
+    <string name="ReportedUsersActivity__reported_users_will">Laporkan users akan membuat pesan yang masuk kepada anda dilaporkan ke pihak Signal</string>
+    <string name="ReportedUsersActivity__report_user"> Laporkan user?</string>
+    <string name="ReportedUserActivity__s_will_not_be_able_to">Pesan dari \"%1$s\" akan diteruskan ke pihak Signal.</string>
+    <string name="ReportedUsersActivity__report">Laporkan</string>
+
 
     <!-- BlockUnblockDialog -->
     <string name="BlockUnblockDialog_block_and_leave_s">Block and leave %1$s?</string>
@@ -293,6 +299,10 @@
         <item quantity="one">Pin pesan ini okee ??</item>
         <item quantity="other">Pin pesan ini okee ??</item>
     </plurals>
+    <plurals name="ConversationFragment_starred_selected_messages">
+        <item quantity="one">Tambahkan sebagai pesan berbintang?</item>
+        <item quantity="other">Tambahkan sebagai pesan berbintang?</item>
+    </plurals>
     <string name="ConversationFragment_save_to_sd_card">Save to storage?</string>
     <plurals name="ConversationFragment_saving_n_media_to_storage_warning">
         <item quantity="one">Saving this media to storage will allow any other apps on your device to access it.\n\nContinue?</item>
@@ -319,6 +329,7 @@
     <string name="ConversationFragment_deleting_messages">Deleting messages…</string>
     <string name="ConversationFragment_delete_for_me">Delete for me</string>
     <string name="ConversationFragment_pin_for_me">Yesss sirr, Pin pleaseee!!</string>
+    <string name="ConversationFragment_starred_for_me">Ya, tambahkan!</string>
     <string name="ConversationFragment_delete_for_everyone">Delete for everyone</string>
     <string name="ConversationFragment_this_message_will_be_deleted_for_everyone_in_the_conversation">This message will be deleted for everyone in the conversation if they’re on a recent version of Signal. They will be able to see that you deleted a message.</string>
     <string name="ConversationFragment_quoted_message_not_found">Original message not found</string>
@@ -767,6 +778,7 @@
     <string name="ManageRecipientActivity_chat_color">Chat color</string>
     <string name="ManageRecipientActivity_chat_wallpaper">Chat wallpaper</string>
     <string name="ManageRecipientActivity_block">Block</string>
+    <string name="ManageRecipientActivity_report">Laporkan</string>
     <string name="ManageRecipientActivity_unblock">Unblock</string>
     <string name="ManageRecipientActivity_view_safety_number">View safety number</string>
     <string name="ManageRecipientActivity_mute_notifications">Mute notifications</string>
@@ -3075,6 +3087,7 @@
     <string name="WallpaperCropActivity__error_setting_wallpaper">Error setting wallpaper.</string>
     <string name="WallpaperCropActivity__blur_photo">Blur photo</string>
     <string name="pin_message">Pin Message</string>
+    <string name="starred_message">Starred Message</string>
 
     <!-- EOF -->
 

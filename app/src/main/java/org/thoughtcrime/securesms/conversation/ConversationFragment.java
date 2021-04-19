@@ -790,6 +790,38 @@ public class ConversationFragment extends LoggingFragment {
     return builder;
   }
 
+  // Handle Starred Messages - Herlana
+  private void handleStarMessages(final Set<ConversationMessage> conversationMessages) {
+    Set<MessageRecord> messageRecordsStar = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
+    buildRemoteStarConfirmationDialog(messageRecordsStar).show();
+  }
+
+
+  // Handle Star Alert Dialog - Herlana
+  private AlertDialog.Builder buildRemoteStarConfirmationDialog(Set<MessageRecord> messageRecords) {
+    Context             context       = requireActivity();
+    int                 messagesCount = messageRecords.size();
+    AlertDialog.Builder builder       = new AlertDialog.Builder(getActivity());
+
+    builder.setTitle(getActivity().getResources().getQuantityString(R.plurals.ConversationFragment_starred_selected_messages, messagesCount, messagesCount));
+    builder.setCancelable(true);
+
+    builder.setPositiveButton(R.string.ConversationFragment_starred_for_me, (dialog, which) -> {
+      // Show Message
+      for (MessageRecord messageRecord : messageRecords) {
+        Context con = getApplicationContext();
+        int duration = 1000;
+
+        Toast toast = Toast.makeText(con, "Pesan telah ditambahkan ke Pesan Berbintang", duration);
+        toast.show();
+      }
+      //nothing
+    });
+
+    builder.setNegativeButton(android.R.string.cancel, null);
+    return builder;
+  }
+
   private void handleDeleteMessages(final Set<ConversationMessage> conversationMessages) {
     Set<MessageRecord> messageRecords = Stream.of(conversationMessages).map(ConversationMessage::getMessageRecord).collect(Collectors.toSet());
     buildRemoteDeleteConfirmationDialog(messageRecords).show();
@@ -1696,6 +1728,7 @@ public class ConversationFragment extends LoggingFragment {
         case R.id.action_download:    handleSaveAttachment((MediaMmsMessageRecord) conversationMessage.getMessageRecord()); return true;
         // Tambahan Confirm Buat PIN - Bima
         case R.id.action_pin_msg:     handlePinMessages(SetUtil.newHashSet(conversationMessage));
+        case R.id.action_star_msg:    handleStarMessages(SetUtil.newHashSet(conversationMessage));
         default:                                                                                                            return false;
       }
     }
