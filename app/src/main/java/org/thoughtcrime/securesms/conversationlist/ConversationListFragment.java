@@ -141,6 +141,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
+import static org.webrtc.ContextUtils.getApplicationContext;
 
 
 public class ConversationListFragment extends MainFragment implements ActionMode.Callback,
@@ -978,7 +979,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
       TypedArray color = getActivity().getTheme().obtainStyledAttributes(new int[] {android.R.attr.statusBarColor});
       WindowUtil.setStatusBarColor(getActivity().getWindow(), color.getColor(0, Color.BLACK));
+
       color.recycle();
+
     }
 
     if (Build.VERSION.SDK_INT >= 23) {
